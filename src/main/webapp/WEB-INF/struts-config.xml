@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="user"
+			type="binhdinh.hoaian.anthanh.model.User" />
+	</form-beans>
+	<action-mappings>
+		<action path="/hello"
+			type="binhdinh.hoaian.anthanh.action.UserAction" name="user"
+			parameter="hello">
+			<forward name="success" path="/hello.jsp" />
+		</action>
+
+		<action path="/viewUser"
+			type="binhdinh.hoaian.anthanh.action.UserAction" name="user" 
+			parameter="viewUser">
+			<forward name="error" path="/login.jsp" />
+			<forward name="viewUser" path="/view.jsp" />
+		</action>
+
+		<action path="/login"
+			type="binhdinh.hoaian.anthanh.action.UserAction" name="user" 
+			parameter="login" scope="request">
+			<forward name="login" path="/login.jsp"/>
+		</action>
+
+	</action-mappings>
+</struts-config>
